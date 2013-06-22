@@ -18,7 +18,7 @@ use_recipe :rails_assets
 after 'deploy:update', 'deploy:assets:precompile'
 
 set :scm, :git # You can set :scm explicitly or Capistrano will make an intelligent guess based on known version control directory names
-# Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
+#  Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
 
 server "lockersoft.cloudapp.net", :app, :web, :db, :primary => true
 
