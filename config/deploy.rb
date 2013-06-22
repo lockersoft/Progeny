@@ -1,3 +1,6 @@
+require 'bundler/capistrano'
+require 'capistrano-deploy'
+
 set :application, "Progeny"
 set :repository, "https://github.com/lockersoft/Progeny.git"
 set :user, "dljones"
@@ -6,7 +9,12 @@ set :use_sudo, false
 set :deploy_to, 'progeny_apps'
 set :deploy_via, :remote_cache
 
-               #default_run_options[:pty] = true    # Fixes problem of: "no tty present and no askpass program specified"
+#default_run_options[:pty] = true    # Fixes problem of: "no tty present and no askpass program specified"
+use_recipe :bundle
+after 'deploy:update', 'bundle:install'
+
+use_recipe :rails_assets
+after 'deploy:update', 'deploy:assets:precompile'
 
 set :scm, :git # You can set :scm explicitly or Capistrano will make an intelligent guess based on known version control directory names
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
