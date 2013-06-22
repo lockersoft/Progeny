@@ -1,0 +1,31 @@
+<h1>Listing species</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Identification</th>
+      <th>Assimilated</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @species.each do |species| %>
+      <tr>
+        <td><%= species.name %></td>
+        <td><%= species.identification %></td>
+        <td><%= species.assimilated %></td>
+        <td><%= link_to 'Show', species %></td>
+        <td><%= link_to 'Edit', edit_species_path(species) %></td>
+        <td><%= link_to 'Destroy', species, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Species', new_species_path %>

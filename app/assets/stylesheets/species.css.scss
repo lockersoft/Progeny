@@ -1,0 +1,10 @@
+// Place all the styles related to the Species controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "bourbon";
+p {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  @include linear-gradient(to top, white, steelblue);
+}
