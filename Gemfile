@@ -43,6 +43,7 @@ end
 # Use Capistrano for deployment
 gem 'capistrano', group: :development
 gem 'capistrano-deploy', :group => :development, :require => false
+gem 'rvm-capistrano'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
