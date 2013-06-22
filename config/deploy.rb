@@ -1,15 +1,20 @@
 require 'capistrano-deploy'
-require 'rvm/capistrano'
 
 set :application, "progeny"
 set :repository, "https://github.com/lockersoft/Progeny.git"
 set :user, "dljones"
 set :port, 65042
 set :use_sudo, false
-set :deploy_to, "/home/#{user}/public_html/#{application}"
+set :deploy_to, "/home/#{user}/public/#{application}"
 server "lockersoft.cloudapp.net", :app, :web, :db, :primary => true
 
-set :deploy_via, :remote
+set :rvm_type, :user
+set :rvm_ruby_string, 'ruby-2.0.0-p0'
+require 'rvm/capistrano'
+
+#set :deploy_via, :remote
+set :scm_verbose, true
+
 set :scm, :git # You can set :scm explicitly or Capistrano will make an intelligent guess based on known version control directory names
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
 
