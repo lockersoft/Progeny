@@ -9,7 +9,7 @@ set :use_sudo, false
 set :deploy_to, "/home/#{user}/public_html/#{application}"
 server "lockersoft.cloudapp.net", :app, :web, :db, :primary => true
 
-#set :deploy_via, :remote_cache
+set :deploy_via, :remote
 set :scm, :git # You can set :scm explicitly or Capistrano will make an intelligent guess based on known version control directory names
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
 
