@@ -18,7 +18,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'bourbon'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
+ gem 'therubyracer', platforms: :ruby, group: :production
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -38,7 +38,7 @@ end
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
 # Use unicorn as the app server
-# gem 'unicorn'
+ gem 'unicorn'
 
 # Use Capistrano for deployment
  gem 'capistrano', group: :development

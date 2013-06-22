@@ -1,11 +1,12 @@
 set :application, "Progeny"
-set :repository, "github.com"
+set :repository, "https://github.com/lockersoft/Progeny.git"
 set :user, "dljones"
 set :port, 65042
-set :use_sudo, true
+set :use_sudo, false
 set :deploy_to, 'progeny_apps'
+set :deploy_via, :remote_cache
 
-default_run_options[:pty] = true    # Fixes problem of: "no tty present and no askpass program specified"
+               #default_run_options[:pty] = true    # Fixes problem of: "no tty present and no askpass program specified"
 
 set :scm, :git # You can set :scm explicitly or Capistrano will make an intelligent guess based on known version control directory names
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
