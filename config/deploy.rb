@@ -1,6 +1,6 @@
 require 'bundler/capistrano'
 require 'capistrano-deploy'
-require "rvm/capistrano"
+require 'rvm/capistrano'
 
 set :application, "progeny"
 set :repository, "https://github.com/lockersoft/Progeny.git"
@@ -10,7 +10,7 @@ set :use_sudo, false
 set :deploy_to, "/home/#{user}/public_html/#{application}"
 set :deploy_via, :remote_cache
 
-#default_run_options[:pty] = true    # Fixes problem of: "no tty present and no askpass program specified"
+default_run_options[:pty] = true    # Fixes problem of: "no tty present and no askpass program specified"
 use_recipe :bundle
 after 'deploy:update', 'bundle:install'
 
@@ -36,6 +36,18 @@ server "lockersoft.cloudapp.net", :app, :web, :db, :primary => true
 #     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
 #   end
 # end
+namespace :deploy do
+  task :start do
+    ;
+  end
+  task :stop do
+    ;
+  end
+  task :restart, :roles => :app, :except => {:no_release => true} do
+    run "#{try_sudo} touch #{File.join(current_path, 'tmp', 'restart.txt')}"
+  end
+end
+
 
 task :showfiles do
   run "ls -al"
