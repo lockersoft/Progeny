@@ -1,12 +1,13 @@
 require 'bundler/capistrano'
 require 'capistrano-deploy'
+require "rvm/capistrano"
 
-set :application, "Progeny"
+set :application, "progeny"
 set :repository, "https://github.com/lockersoft/Progeny.git"
 set :user, "dljones"
 set :port, 65042
 set :use_sudo, false
-set :deploy_to, 'progeny_apps'
+set :deploy_to, "/home/#{user}/public_html/#{application}"
 set :deploy_via, :remote_cache
 
 #default_run_options[:pty] = true    # Fixes problem of: "no tty present and no askpass program specified"
